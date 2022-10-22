@@ -500,7 +500,7 @@ class Mailbox
      */
     public function decodeStringFromUtf7ImapToUtf8(string $str): string
     {
-        $out = imap_utf7_decode($str);
+        $out = imap_mutf7_to_utf8($str);
 
         if (!\is_string($out)) {
             throw new UnexpectedValueException('mb_convert_encoding($str, \'UTF-8\', \'UTF7-IMAP\') could not convert $str');
